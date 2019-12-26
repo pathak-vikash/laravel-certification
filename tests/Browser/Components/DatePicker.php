@@ -14,7 +14,7 @@ class DatePicker extends BaseComponent
      */
     public function selector()
     {
-        return '#selector';
+        return '.date-picker';
     }
 
     /**
@@ -36,7 +36,28 @@ class DatePicker extends BaseComponent
     public function elements()
     {
         return [
-            '@element' => '#selector',
+            '@date-field' => 'input.datepicker-input',
+            '@month-list' => 'div > div.datepicker-months',
+            '@day-list' => 'div > div.datepicker-days',
         ];
+    }
+
+    /**
+     * Select the given date.
+     *
+     * @param  \Laravel\Dusk\Browser  $browser
+     * @param  int  $month
+     * @param  int  $day
+     * @return void
+     */
+    public function selectDate($browser, $month, $day)
+    {
+        $browser->click('@date-field')
+                ->within('@month-list', function ($browser) use ($month) {
+                    $browser->click($month);
+                })
+                ->within('@day-list', function ($browser) use ($day) {
+                    $browser->click($day);
+                });
     }
 }

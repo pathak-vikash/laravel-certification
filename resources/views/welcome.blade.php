@@ -82,6 +82,11 @@
                     Laravel
                 </div>
 
+                <div>
+                    Date piker component
+                    <input type="text" class="date-picker">
+                </div>
+
                 @alert(['type' => 'danger'])
                     [You are not allowed to access this resource! 132 ] - [ Layout ]
                 @endalert
