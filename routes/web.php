@@ -11,9 +11,9 @@
 |
 */
 
-/* Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-}); */
+});
 
 Auth::routes();
 
@@ -23,6 +23,7 @@ Route::get('/server', function(){
     return view('server');
 });
 
+/*
 use Illuminate\Http\Request;
 
 // First route that user visits on consumer app
@@ -56,3 +57,5 @@ Route::get('callback', function (Request $request) {
     // echo the access token; normally we would save this in the DB
     return json_decode((string) $response->getBody(), true)['access_token'];
 });
+
+*/
