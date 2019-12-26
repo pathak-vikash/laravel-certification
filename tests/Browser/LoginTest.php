@@ -20,4 +20,25 @@ class LoginTest extends DuskTestCase
                     ->assertSee('Laravel');
         });
     }
+
+    public function testBasicExample()
+    {
+        
+
+        $user = \App\User::where('email', 'vikashh.pathak@gmail.com')->first();
+
+        if (!$user){
+            $user = factory(\App\User::class)->create([
+                'email' => 'vikashh.pathak@gmail.com',
+            ]);
+        }
+
+        $this->browse(function ($browser) use ($user) {
+            $browser->visit('/login')
+                    ->type('email', $user->email)
+                    ->type('password', '123654')
+                    ->press('Login')
+                    ->assertPathIs('/home');
+        });
+    }
 }
