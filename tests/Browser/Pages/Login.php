@@ -13,7 +13,7 @@ class Login extends Page
      */
     public function url()
     {
-        return '/';
+        return '/login';
     }
 
     /**
@@ -35,7 +35,7 @@ class Login extends Page
     public function elements()
     {
         return [
-            '@element' => '#selector',
+            '@email' => 'input[name=email]',
         ];
     }
 }
