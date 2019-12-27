@@ -17,7 +17,18 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::component('components.alert', 'alert');
 
+        # view share
         View::share("copyright", ['author'=> "Vikash Pathak", "year" => date('Y')]);
+
+        # view Creator
+        View::creator('welcome', function(){
+            \Log::info("Hello from view creator");
+        });
+
+        # view composer
+        View::composer('welcome', function(){
+            \Log::info("Hello from the view composer");
+        });
     }
 
     /**
