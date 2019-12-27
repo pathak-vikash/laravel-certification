@@ -23,6 +23,8 @@ Route::get('/server', function(){
     return view('server');
 });
 
+Route::resource("posts", "PostsController");
+
 /*
 use Illuminate\Http\Request;
 
